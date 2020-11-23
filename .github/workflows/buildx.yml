@@ -36,7 +36,7 @@ jobs:
       - name: Run Buildx
         run: |
           docker buildx build \
-            --platform linux/amd64,linux/arm/v7 \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 \
             -t ouvocl/base-py38:${GITHUB_SHA::7} \
             .
       - name: Login to DockerHub
@@ -46,12 +46,12 @@ jobs:
       - name: Run Buildx
         run: |
           docker buildx build \
-            --platform linux/amd64,linux/arm/v7 \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 \
             -t ouvocl/base-py38:${GITHUB_SHA::7} \
             . \
             --push
           docker buildx build \
-            --platform linux/amd64,linux/arm/v7 \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 \
             -t ouvocl/base-py38:latest \
             . \
             --push
